@@ -2,6 +2,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace testing
 {
@@ -15,6 +16,9 @@ namespace testing
             driver.Navigate().GoToUrl("http://localhost:5000");
 
             Assert.AreEqual("Home Page - website", driver.Title);
+
+            var heading = driver.FindElement(By.XPath("//*[contains(text(),'Welcom')]"));
+            Console.WriteLine(heading);
         }
     }
 }
